@@ -13,16 +13,16 @@ export default function BlogTemplate(props) {
     const frontmatter = props.data
     return (
         <Layout config={props.config}>
-            <div className="blog__info">
+            <div>
             <h1>{frontmatter.title}</h1>
+            <h2>
+            {frontmatter.description}
+            </h2>
             <h3>{reformatDate(frontmatter.date)}</h3>
             </div>
-            <div className="blog__body">
+            <div>
             <ReactMarkdown source={markdownBody} />
             </div>
-            <h2 className="blog__footer">
-            Description: {frontmatter.description}
-            </h2>
         </Layout>
     )
 }
