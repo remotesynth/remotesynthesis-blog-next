@@ -13,16 +13,40 @@ export default function BlogTemplate(props) {
     const frontmatter = props.data
     return (
         <Layout config={props.config}>
-            <div>
-            <h1>{frontmatter.title}</h1>
-            <h2>
-            {frontmatter.description}
-            </h2>
-            <h3>{reformatDate(frontmatter.date)}</h3>
-            </div>
-            <div>
-            <ReactMarkdown source={markdownBody} />
-            </div>
+            <article class="post-warp">
+                <header class="post-header">
+                    <h1 class="post-title">{frontmatter.title}</h1>
+                    <div class="post-meta">
+                        <span class="post-time">
+                            Written on <time datetime={reformatDate(frontmatter.date)} >{reformatDate(frontmatter.date)}</time>
+                            </span>
+                            &nbsp;
+                            <i class="iconfont icon-folder"></i>
+                            <span class="post-category">
+                                <a href="#"> category </a>
+                            </span>
+                    </div>
+                </header>
+                <div class="post-content">     
+                    <ReactMarkdown source={markdownBody} />
+                </div>
+
+                <div class="post-copyright">
+                        <p class="copyright-item">
+                            <span>Author:</span>
+                            <span>Brian Rinaldi</span>
+                        </p>
+                        
+                        <p class="copyright-item">
+                            <span>Share:</span>
+                            <span>Add Share Links Here</span>
+                        </p>
+                </div>
+
+                <div class="post-comment">
+                    Comments go here
+                </div>
+            </article>
         </Layout>
     )
 }

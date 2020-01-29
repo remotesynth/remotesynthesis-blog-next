@@ -1,7 +1,11 @@
-import Link from 'next/link';
-
 export default () => (
-    <footer>
-        <p>This is a footer</p>
+    <footer class="footer">
+        <div class="copyright">
+            &copy;
+            <span itemprop="copyrightYear">2020</span>
+            &nbsp;
+            <span class="author" itemprop="copyrightHolder"><a href="/">Brian Rinaldi</a></span>
+
+        </div>
     </footer>
-);
+)
